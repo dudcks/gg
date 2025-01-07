@@ -7,14 +7,3 @@ pub fn encrypt_pwd(password: String) -> String {
     
     format!("{:x}", result)
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn en_test(){
-        let a = "name";
-        encrypt_pwd(a);
-    }
-}

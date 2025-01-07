@@ -26,7 +26,9 @@ pub fn see_history(id: String){
             }
             "3" => {
                 println!("특정 유저와의 전적");
-                find_his(&file_path);
+                if let Err(e) = find_his(&file_path) {
+                    println!("Error: {}", e); // 오류 출력
+                }
             }
             "4" => break,
             _ => {
@@ -59,25 +61,25 @@ fn save_his(file_path: &str) -> io::Result<()> {
     let contents = fs::read_to_string(file_path)?;
 
     print!("Enemy ID: ");
-    io::stdout().flush(); 
+    io::stdout().flush().expect("Failed to flush stdout");
     let mut enemy_id = String::new();
     io::stdin().read_line(&mut enemy_id).expect("입력 실패");
     let enemy_id = enemy_id.trim().to_string(); 
 
     print!("Win: ");
-    io::stdout().flush();
+    io::stdout().flush().expect("Failed to flush stdout");
     let mut win = String::new();
     io::stdin().read_line(&mut win).expect("입력 실패");
     let win: i32 = win.trim().parse().expect("숫자를 입력하세요!"); 
 
     print!("Loss: ");
-    io::stdout().flush();
+    io::stdout().flush().expect("Failed to flush stdout");
     let mut loss = String::new();
     io::stdin().read_line(&mut loss).expect("입력 실패");
     let loss: i32 = loss.trim().parse().expect("숫자");
 
     print!("Draw: ");
-    io::stdout().flush();
+    io::stdout().flush().expect("Failed to flush stdout");
     let mut draw = String::new();
     io::stdin().read_line(&mut draw).expect("입력 실패");
     let draw: i32 = draw.trim().parse().expect("숫자");
@@ -132,7 +134,7 @@ fn find_his(file_path: &str) -> Result<(), Box<dyn std::error::Error>>{
     let contents = fs::read_to_string(file_path)?;
 
     print!("Enemy ID: ");
-    io::stdout().flush(); 
+    io::stdout().flush().expect("Failed to flush stdout");
     let mut enemy_id = String::new();
     io::stdin().read_line(&mut enemy_id).expect("입력 실패");
     let enemy_id = enemy_id.trim().to_string(); 

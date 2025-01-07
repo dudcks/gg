@@ -9,7 +9,7 @@ fn signin(){
     let mut id = String::new();
 
     print!("아이디:");
-    io::stdout().flush();
+    io::stdout().flush().expect("Failed to flush stdout");
     io::stdin().read_line(&mut id).expect("Failed to read line");
 
     id = id.trim().to_string();
@@ -21,7 +21,7 @@ fn signin(){
         println!("이지 존재하는 ID 입니다.");
     } else {
         print!("비밀반호:");
-        io::stdout().flush();
+        io::stdout().flush().expect("Failed to flush stdout");
         let mut password = String::new();
         io::stdin().read_line(&mut password).expect("Failed to read line");
         password=password.trim().to_string();
@@ -41,12 +41,12 @@ fn login() -> Option<String>{
     let mut id = String::new();
 
     print!("아이디: ");
-    io::stdout().flush();
+    io::stdout().flush().expect("Failed to flush stdout");
     io::stdin().read_line(&mut id).expect("Failed to read line");
     id = id.trim().to_string();
 
     print!("비밀번호: ");
-    io::stdout().flush();
+    io::stdout().flush().expect("Failed to flush stdout");
     let mut password = String::new();
     io::stdin().read_line(&mut password).expect("Failed to read line");
     password=password.trim().to_string();
