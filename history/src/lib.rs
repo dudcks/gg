@@ -162,9 +162,3 @@ fn find_his(file_path: &str) -> Result<(), Box<dyn std::error::Error>>{
 
     Ok(())
 }
-
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-}
