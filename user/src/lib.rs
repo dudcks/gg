@@ -29,7 +29,7 @@ fn signin(){
         let hashed_password = encry::encrypt_pwd(password); 
 
         let mut sign = File::create(&file_path).expect("Failed to create file");
-        let mut his = File::create(&his_path).expect("Failed to create file");
+        let _his = File::create(&his_path).expect("Failed to create file");
 
         sign.write_all(hashed_password.as_bytes()).expect("Failed to write hashed password");
 
