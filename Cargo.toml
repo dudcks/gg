@@ -1,6 +1,8 @@
 [workspace]
 
-members = [ "encry", "history",
+members = [ 
+    "encry",
+    "history",
     "main",
     "user",
 ]
